@@ -8,12 +8,15 @@
 
 import Foundation
 
-// TODO: currently there are 5 errors in the Card struct
-// 1. Follow steps from Suit.swift section in the assessment README
-// 2. Follow steps from FaceCard.swift section in the assessment README
+//In keeping with object-oriented programming in our BlackJack game a card will be the main data of the game.
 
+// TODO: currently there are 5 errors in the Card struct
+// 1. Follow steps from Suit.swift section in the assessment README ☑️
+// 2. Follow steps from FaceCard.swift section in the assessment README ☑️
+
+//☑️
 struct Card {
-  var suit: Suit // create the suit
+  var suit: Suit
   var value: Int
   var isFaceCard: Bool
     var face: FaceCard? // create facecard
