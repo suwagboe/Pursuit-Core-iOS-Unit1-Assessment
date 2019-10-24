@@ -13,10 +13,10 @@ import Foundation
 // 2. Follow steps from FaceCard.swift section in the assessment README
 
 struct Card {
-  var suit: Suit
+  var suit: Suit // create the suit
   var value: Int
   var isFaceCard: Bool
-  var face: FaceCard?
+    var face: FaceCard? // create facecard
   
   func stringify() -> String {
     var cardStr = ""
