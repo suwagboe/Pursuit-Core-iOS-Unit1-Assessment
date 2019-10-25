@@ -70,11 +70,11 @@
 			isa = PBXGroup;
 			children = (
 				576D1E5F2356839800765B16 /* main.swift */,
+				3C7E38432362542100610255 /* Game Class.swift */,
 				576D1E682356845300765B16 /* Card.swift */,
 				3C7E383D2361F61D00610255 /* FaceCard Enum.swift */,
 				3C7E383B2361F44E00610255 /* Suit Enum.swift */,
 				3C7E383F2361F74A00610255 /* Player Struct.swift */,
-				3C7E38432362542100610255 /* Game Class.swift */,
 				3C7E38412361F8C400610255 /* Actual Game.swift */,
 			);
 			path = BlackJack;

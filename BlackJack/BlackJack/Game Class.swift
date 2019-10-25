@@ -14,40 +14,34 @@ class Game {
     var score = 0
     // if they have hit 21
     var pass = "pass".lowercased()
-    var player = "Player"
+    var player = Player(score: 0, cardsArray: [Card](), playerName: "Antonio")
     // who is playing
-    var playersScore = 0
+//    var playersScore = 0
     var hit = "hit".lowercased()
     var goalScore = 21
-      // this is the number they are trying to meet
-    //++++++++++++BELOW ALL NEED INITIALIZERS+++++++++++++
+var playersScore = 0
     
     static var lastCardPicked: Card?
-    var deck = [Card]()
+    var deck = Card.newDeck(aceValue: 1)
     // holds all of the cards in a deck that can be drawn
     var heresTheCard = [Card]()
    static var computersScore = Int()
-    var shuffleDeck: [Card]
-    var hitPlayer: Bool
+//    var shuffleDeck: [Card]
+    var hitPlayer: Bool = true
     // checking if the player wants the computer to hit them with a card
     
-    //    init(age:Int, breed: String){ // initializer is the instance
-    //        // needs to take in all the parameters that DO NOT HAVE A VALUE AND NEED TO initialized
-    //        self.age = age
-    //        self.breed = breed
-    //    }
-        
-    init( deck: [Card], heresTheCard: [Card], computerScore: Int, shuffleDeck: [Card], hitPlayer: Bool, lastCardPicked: Card){
-        self.deck = deck
-        self.heresTheCard = heresTheCard
-        Game.self.computersScore = computerScore
-        self.shuffleDeck = shuffleDeck
-        self.hitPlayer = hitPlayer
-        Game.self.lastCardPicked = lastCardPicked
-        // What !! Does this MEANS!!!?!?!?!?!
-        
-    }
     
+//    init( deck: [Card], heresTheCard: [Card], computerScore: Int, shuffleDeck: [Card], hitPlayer: Bool, lastCardPicked: Card){
+//        self.deck = deck
+//        self.heresTheCard = heresTheCard
+//        Game.self.computersScore = computerScore
+//        self.shuffleDeck = shuffleDeck
+//        self.hitPlayer = hitPlayer
+//        Game.self.lastCardPicked = lastCardPicked
+//        // What !! Does this MEANS!!!?!?!?!?!
+//
+//    }
+//
     
     var hasMoreCards: Bool {
         // checking if there are more cards left inside of the DECK of cardas
@@ -73,7 +67,7 @@ class Game {
     // I forget why this is a mutating func. but its necessary for me to do this function
     
     // MARK: hit me/ give player addtional card
-    func hitMe(deck: [Card]) -> Int{
+    func hitMe() -> Int{
         // this should generate a new card everytime
         
         //called as the user requests more cards from the deck
@@ -81,9 +75,9 @@ class Game {
        
         //var newCardPick: Card
         // created this variable to hold a card..
-        
+
         // this holds a shuffled deck
-        shuffleDeck = deck.shuffled()
+       var shuffleDeck = deck.shuffled()
         
         // this holds the last card out of the whole shuffled deck
         Game.lastCardPicked = shuffleDeck.popLast()!
@@ -95,9 +89,8 @@ class Game {
         
     }
     
-    func playersScore (hitMe: Int) -> Int{
-        
-        playersScore += hitMe
+    func WhatIsPlayersScore () -> Int{
+        playersScore += Game.lastCardPicked?.value ?? 0
         return playersScore
     }
     
@@ -152,13 +145,13 @@ class Game {
     
     func gameStatus(){
         //takes in the player's card and determines the current score. Here the player score options can be, BlackJack, Bust or Continue playing as their status is still valid for game play.
-        if score == goalScore {
+        if playersScore == goalScore {
             // blackjack
             _ = "You have won!!! You made it to 21."
-        } else if score > goalScore {
+        } else if playersScore > goalScore {
             // bust
             _ = "You lose your score goes over 21.🥺"
-        }
+        } 
 //        else if score < goalScore && userPromptResponse == "hit"{
 //            print("you can keep going?")
 //        }
@@ -167,9 +160,14 @@ class Game {
      func newGame() {
         // what is this one doing?
         // and what is it returning??
-        score = 0
+        playersScore = 0
+       // computerScore = 0 this wont work why???
+        
         // questions =  [Questions]() WRONG AND CREATES A NEW!! INSTANCE
+        
+        // this is wrong I should have a new deck of cards but instead im removing cards
         deck.removeAll()// removes all the values
+        
     }
     
     

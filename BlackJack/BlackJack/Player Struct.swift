@@ -15,7 +15,7 @@ import Foundation
  */
 
 struct Player {
-    var score: Int
+    var score: Int 
     var cardsArray: [Card]
     var playerName: String
     

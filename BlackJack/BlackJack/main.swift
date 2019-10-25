@@ -8,12 +8,15 @@
 
 import Foundation
 
-//var game = Game(deck: [Card](), heresTheCard: [Card](), computerScore: Int(), shuffleDeck: [Card](), hitPlayer: Bool(), newCardPick: Card())
+//var game = Game(deck: [Card](), heresTheCard: [Card](), computerScore: Int(), shuffleDeck: [Card](), hitPlayer: Bool(), lastCardPicked: Card(suit: Suit(rawValue: "some String")!, value: Int(1), isFaceCard: Bool(false)))
 //
-    
+//
+    var game = Game()
     
 // TODO: remove these lines after you have added the Suit and FaceCard enums as per the assessment README
-print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
+    
+    
+   //print("There are \(Card.newDeck) in a deck of cards")
 // There are 52 in a deck of cards
 
 // pushing to github!!!! First Assessment
@@ -33,30 +36,39 @@ print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
  */
 
 
-//let game = Game()
 
-var gameOver: Bool = false
+//var gameOver: Bool = false
 
 print("Welcome to BlackJack... where you can win or lose??")
+
 
 let userPrompt = """
 Do you want to hit or pass?? (hit or pass)
 """
 
+
+
+
 repeat{
  print(userPrompt)
     // prints prompt for user to see
     
-    let userPromptResponse = readLine() ?? ""
+    let userResponseOne = readLine()?.lowercased() ?? ""
+    
+    if userResponseOne == "hit"{
+      let firstCard = game.WhatIsPlayersScore()
+        print(firstCard)
+        // need to check game status here
+        
+    } else if userResponseOne == "pass" {
+        let computersScore = game.computerScore(hitme: Game.lastCardPicked?.value ?? 0)
+        
+    }
+    
+    } while game.hasMoreCards
+    
 
-    //game.hitMe()
     
+//repeat{           }while userPromptResponse == "hitme"
     
-
-//    repeat {
-//
-//    }while Game.gameStatus
-
-    
-    
-} while gameOver
+// game.gamestaus is crossed out and i cant use it why??

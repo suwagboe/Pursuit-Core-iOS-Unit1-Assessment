@@ -38,17 +38,20 @@ struct Card {
     var cards = [Card]()
     for cardValue in 2..<11 {
       for suit in Suit.allCases {
+        //goes through the 2-10 cards
         let card = Card(suit: suit, value: cardValue, isFaceCard: false)
         cards.append(card)
       }
     }
     for face in FaceCard.allCases {
       for suit in Suit.allCases {
+        // face cards and assigns the value of the kings
         let card = Card(suit: suit, value: 10, isFaceCard: true, face: face)
         cards.append(card)
       }
     }
     for suit in Suit.allCases {
+        // does the ace card
       let card = Card(suit: suit, value: aceValue, isFaceCard: false)
       cards.append(card)
     }
