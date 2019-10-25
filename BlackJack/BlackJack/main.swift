@@ -11,12 +11,12 @@ import Foundation
 //var game = Game(deck: [Card](), heresTheCard: [Card](), computerScore: Int(), shuffleDeck: [Card](), hitPlayer: Bool(), lastCardPicked: Card(suit: Suit(rawValue: "some String")!, value: Int(1), isFaceCard: Bool(false)))
 //
 //
-    var game = Game()
-    
+var game = Game()
+
 // TODO: remove these lines after you have added the Suit and FaceCard enums as per the assessment README
-    
-    
-   //print("There are \(Card.newDeck) in a deck of cards")
+
+
+//print("There are \(Card.newDeck) in a deck of cards")
 // There are 52 in a deck of cards
 
 // pushing to github!!!! First Assessment
@@ -27,12 +27,12 @@ import Foundation
 
 /*
  ☑️
-    ~Create an instance of the Game()
-    ~Call newGame on the newly created instance above.
-    ~Create a gameOver instance and set it to false. This will be used in your repeat-while to determine if game play should stop.
-    ~Use a repeat-while to allow the user options between getting new cards by calling the hitMe() method or passing by calling the stopHits() method.
-    ~When the player has won or lost ask them if they would wish to continue playing another round.
-
+ ~Create an instance of the Game()
+ ~Call newGame on the newly created instance above.
+ ~Create a gameOver instance and set it to false. This will be used in your repeat-while to determine if game play should stop.
+ ~Use a repeat-while to allow the user options between getting new cards by calling the hitMe() method or passing by calling the stopHits() method.
+ ~When the player has won or lost ask them if they would wish to continue playing another round.
+ 
  */
 
 
@@ -49,26 +49,26 @@ Do you want to hit or pass?? (hit or pass)
 
 
 
-repeat{
- print(userPrompt)
+
+    print(userPrompt)
     // prints prompt for user to see
     
-    let userResponseOne = readLine()?.lowercased() ?? ""
-    
-    if userResponseOne == "hit"{
-      let firstCard = game.WhatIsPlayersScore()
-        print(firstCard)
+    repeat {
+        let userResponseOne = readLine()?.lowercased() ?? ""
+        switch userResponseOne {
+        case "hit":
+            let firstCardFace = game.whatIsPlayersScore()
+            //            let firstCardValue = game.WhatArePlayersActualValueScore()
+            
+            // need to review maps
+            print("This is persons  stuff \(firstCardFace.cardsArray.map{ $0.stringify() }) score: \(firstCardFace.score)")
+            // this inputs the cards into the array. map allows for the cards to go into the array.
+            
         // need to check game status here
-        
-    } else if userResponseOne == "pass" {
-        let computersScore = game.computerScore(hitme: Game.lastCardPicked?.value ?? 0)
-        
-    }
-    
-    } while game.hasMoreCards
-    
+        case "pass":
+            let computersScore = game.computerScore(hitme: Game.lastCardPicked!.value)
+        default:
+            print("please choose one")}
+    }while game.whatIsPlayersScore().score < 20
 
-    
-//repeat{           }while userPromptResponse == "hitme"
-    
-// game.gamestaus is crossed out and i cant use it why??
+
