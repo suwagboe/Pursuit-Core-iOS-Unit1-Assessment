@@ -8,6 +8,10 @@
 
 import Foundation
 
+//var game = Game(deck: [Card](), heresTheCard: [Card](), computerScore: Int(), shuffleDeck: [Card](), hitPlayer: Bool(), newCardPick: Card())
+//
+    
+    
 // TODO: remove these lines after you have added the Suit and FaceCard enums as per the assessment README
 print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
 // There are 52 in a deck of cards
@@ -36,7 +40,7 @@ var gameOver: Bool = false
 print("Welcome to BlackJack... where you can win or lose??")
 
 let userPrompt = """
-Do you want to hit or pass??
+Do you want to hit or pass?? (hit or pass)
 """
 
 repeat{
@@ -44,26 +48,15 @@ repeat{
     // prints prompt for user to see
     
     let userPromptResponse = readLine() ?? ""
+
+    //game.hitMe()
     
+    
+
 //    repeat {
-//    switch userPromptResponse {
 //
-//
-//    case stopHits:
-    
-    
-    
-    
-    
-    
-    
-//
-//
-//    default:
-//        //??
-//    }
-//    }while game.gameStatus
-//
+//    }while Game.gameStatus
+
     
     
 } while gameOver

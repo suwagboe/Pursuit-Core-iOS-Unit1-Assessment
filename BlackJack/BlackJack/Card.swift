@@ -21,6 +21,8 @@ struct Card {
   var isFaceCard: Bool
     var face: FaceCard? // create facecard
   
+    
+    
   func stringify() -> String {
     var cardStr = ""
     if self.isFaceCard {

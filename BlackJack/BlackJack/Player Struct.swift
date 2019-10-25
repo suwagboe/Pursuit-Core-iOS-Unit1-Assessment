@@ -19,6 +19,4 @@ struct Player {
     var cardsArray: [Card]
     var playerName: String
     
-    
-    
 }
