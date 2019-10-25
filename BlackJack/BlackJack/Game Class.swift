@@ -26,7 +26,7 @@ class Game {
     var deck = [Card]()
     // holds all of the cards in a deck that can be drawn
     var heresTheCard = [Card]()
-    var computersScore = Int()
+   static var computersScore = Int()
     var shuffleDeck: [Card]
     var hitPlayer: Bool
     // checking if the player wants the computer to hit them with a card
@@ -40,7 +40,7 @@ class Game {
     init( deck: [Card], heresTheCard: [Card], computerScore: Int, shuffleDeck: [Card], hitPlayer: Bool, lastCardPicked: Card){
         self.deck = deck
         self.heresTheCard = heresTheCard
-        self.computersScore = computerScore
+        Game.self.computersScore = computerScore
         self.shuffleDeck = shuffleDeck
         self.hitPlayer = hitPlayer
         Game.self.lastCardPicked = lastCardPicked
@@ -114,9 +114,10 @@ class Game {
     
 //    if isLeapYear(year: year) == true {
 
-     func computerScore() -> Int {
+    func computerScore(hitme: Int) -> Int {
             // generate the computer score
-        let firstRandomCardPick = 0
+        //HELP MEEEEE!!!!!
+        let firstRandomCardPick = Game.lastCardPicked?.value ?? 0
 
         var computerScore = 0
         
@@ -142,7 +143,7 @@ class Game {
     //        }
     
      func computerVsPlayer() {
-        if playersScore < computerScore() {
+        if playersScore < computerScore(hitme: Game.lastCardPicked?.value ?? 0) {
             print("The computers score is higher then your score... 😞 You lost 😞")
         } else {
             print("YOU BEAT THE COMPUTER🤯!!! 🎆 one small step for you onE giant leap for 🧬humans against the matrix💻.")
